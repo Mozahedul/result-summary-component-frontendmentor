@@ -1,47 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Results summary component</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Young+Serif&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Results summary component</title>
 
-  Your Result
-  76
-  of 100
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        justify-items: center;
+        font-family: "Hanken Grotesk", sans-serif;
+        overflow-x: hidden;
+      }
+      main {
+        background-color: hsl(0, 0%, 100%);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        box-shadow: 4px 4px 20px 10px rgba(57, 86, 184, 0.11);
+      }
 
-  Great
-  You scored higher than 65% of the people who have taken these tests.
-  
-  Summary
+      .result {
+        background: rgb(36, 33, 202);
+        background: -moz-linear-gradient(
+          0deg,
+          rgba(36, 33, 202, 1) 62%,
+          rgba(78, 33, 202, 1) 100%
+        );
+        background: -webkit-linear-gradient(
+          0deg,
+          rgba(36, 33, 202, 1) 62%,
+          rgba(78, 33, 202, 1) 100%
+        );
+        background: linear-gradient(
+          0deg,
+          rgba(36, 33, 202, 1) 62%,
+          rgba(78, 33, 202, 1) 100%
+        );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2421ca",endColorstr="#4e21ca",GradientType=1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+      }
 
-  Reaction
-  80 / 100
+      .subtitle {
+        color: hsl(0, 0%, 82%);
+        font-size: 24px;
+      }
 
-  Memory
-  92 / 100
+      p {
+        font-size: 18px;
+        color: hsl(0, 1%, 77%);
+        text-align: center;
+        line-height: 1.2em;
+      }
 
-  Verbal
-  61 / 100
+      .result h1 {
+        color: #e7e7e7;
+        margin-bottom: 0;
+      }
 
-  Visual
-  72 / 100
+      .result-status {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgb(36, 33, 202);
+        background: -moz-linear-gradient(
+          180deg,
+          rgba(36, 33, 202, 1) 0%,
+          rgba(57, 46, 215, 1) 48%,
+          rgba(67, 52, 221, 1) 77%,
+          rgba(110, 80, 249, 1) 95%,
+          rgba(120, 87, 255, 0.8799894957983193) 100%
+        );
+        background: -webkit-linear-gradient(
+          180deg,
+          rgba(36, 33, 202, 1) 0%,
+          rgba(57, 46, 215, 1) 48%,
+          rgba(67, 52, 221, 1) 77%,
+          rgba(110, 80, 249, 1) 95%,
+          rgba(120, 87, 255, 0.8799894957983193) 100%
+        );
+        background: linear-gradient(
+          180deg,
+          rgba(36, 33, 202, 1) 0%,
+          rgba(57, 46, 215, 1) 48%,
+          rgba(67, 52, 221, 1) 77%,
+          rgba(110, 80, 249, 1) 95%,
+          rgba(120, 87, 255, 0.8799894957983193) 100%
+        );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2421ca",endColorstr="#7857ff",GradientType=1);
+        padding: 30px;
+        width: 130px;
+        height: 130px;
+        border-radius: 100px;
+        margin-top: 20px;
+      }
 
-  Continue
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+      .result-status strong {
+        font-size: 64px;
+        color: rgb(224, 224, 224);
+      }
+
+      .result-status span {
+        font-size: 18px;
+        font-weight: 600;
+        color: #a0a0a0;
+      }
+
+      /* summary */
+      .summary {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .summary h3 {
+        color: #292929;
+      }
+
+      .summary .btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fff7f5;
+        padding: 14px 10px;
+        border-radius: 5px;
+      }
+
+      .btn-text-img {
+        display: flex;
+        align-items: center;
+      }
+
+      .btn-text-img span {
+        padding-left: 6px;
+        font-weight: 600;
+        color: hsl(0, 100%, 67%);
+      }
+
+      .btn:not(:last-of-type) {
+        margin-bottom: 15px;
+      }
+
+      .btn .marks {
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .btn .total-marks {
+        color: #999999;
+      }
+
+      .btn-text-img .memory {
+        color: hsl(39, 100%, 56%);
+      }
+
+      .summary .btn-memory {
+        background-color: #fdfdef;
+      }
+
+      .btn-text-img .verbal {
+        color: hsl(166, 100%, 37%);
+      }
+
+      .summary .btn-verbal {
+        background-color: #f2fbfa;
+      }
+
+      .btn-text-img .visual {
+        color: hsl(234, 85%, 45%);
+      }
+
+      .summary .btn-visual {
+        background-color: #f3f3ff;
+      }
+
+      .continue-btn {
+        outline: none;
+        border: none;
+        padding: 15px;
+        margin-top: 30px;
+        background-color: #303b57;
+        color: #fff7f5;
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 50px;
+        cursor: pointer;
+      }
+
+      .attribution {
+        font-size: 12px;
+        text-align: center;
+        margin-top: 30px;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      @media screen and (min-width: 576px) {
+        body {
+          place-content: center;
+        }
+        main {
+          border-radius: 30px;
+          grid-template-columns: 1fr 1fr;
+          min-width: 350px;
+          max-width: 700px;
+        }
+
+        .result {
+          border-radius: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="result">
+        <h1 class="subtitle">Your Result</h1>
+        <div class="result-status">
+          <strong>76</strong>
+          <span>of 100</span>
+        </div>
+        <h1>Great</h1>
+        <p>
+          You scored higher than 65% of the people who have taken these tests.
+        </p>
+      </div>
+      <div class="summary">
+        <h3>Summary</h3>
+        <div class="btn">
+          <div class="btn-text-img">
+            <img src="./assets/images/icon-reaction.svg" alt="Reaction icon" />
+            <span>Reaction</span>
+          </div>
+          <div class="marks">
+            <strong>80</strong>
+            <span class="total-marks">/ 100</span>
+          </div>
+        </div>
+        <div class="btn btn-memory">
+          <div class="btn-text-img">
+            <img src="./assets/images/icon-memory.svg" alt="memory icon" />
+            <span class="memory">Memory</span>
+          </div>
+          <div class="marks">
+            <strong>80</strong>
+            <span class="total-marks">/ 100</span>
+          </div>
+        </div>
+        <div class="btn btn-verbal">
+          <div class="btn-text-img">
+            <img src="./assets/images/icon-verbal.svg" alt="memory icon" />
+            <span class="verbal">Verbal</span>
+          </div>
+          <div class="marks">
+            <strong>80</strong>
+            <span class="total-marks">/ 100</span>
+          </div>
+        </div>
+        <div class="btn btn-visual">
+          <div class="btn-text-img">
+            <img src="./assets/images/icon-visual.svg" alt="memory icon" />
+            <span class="visual">Visual</span>
+          </div>
+          <div class="marks">
+            <strong>80</strong>
+            <span class="total-marks">/ 100</span>
+          </div>
+        </div>
+        <button type="button" class="continue-btn">Continue</button>
+      </div>
+    </main>
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a target="_blank" href="https://portfolio-mozahedul.vercel.app/"
+          >Mozahedul Islam</a
+        >.
+      </div>
+    </footer>
+  </body>
 </html>
